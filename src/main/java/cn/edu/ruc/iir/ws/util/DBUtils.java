@@ -1,13 +1,14 @@
 package cn.edu.ruc.iir.ws.util;
 
-import org.apache.log4j.Logger;
-
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.List;
 import java.util.Map;
+
+import org.apache.log4j.Logger;
 
 public class DBUtils {
 
@@ -66,6 +67,17 @@ public class DBUtils {
 		}
 	}
 
+	public void close(PreparedStatement ps, Connection conn) {
+		try {
+			if (ps != null)
+				ps.close();
+			if (conn != null)
+				conn.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
 	public ResultSet Select(String SQL) {
 		Statement statement = null;
 		ResultSet rs = null;
@@ -73,24 +85,47 @@ public class DBUtils {
 			statement = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
 			rs = statement.executeQuery(SQL);
 		} catch (Exception e) {
-			log.error("Select from sql server error! errmsg:{}", e);
+			log.error("Select from sql server error! errmsg: ", e);
 		}
 		return rs;
 	}
 
-	public void Execute(String SQL) {
+	public boolean Execute(String SQL) {
+		boolean flag = false;
 		Statement statement = null;
 		try {
 			statement = conn.createStatement();
 			statement.execute(SQL);
+			flag = true;
 		} catch (Exception e) {
-			log.error("Execute sql error! errmsg:{}", e);
+			log.error("Execute sql error! errmsg: ", e);
 		} finally {
 			close(statement, conn);
 		}
+		return flag;
 	}
 
-	public String getTable(String aSql, Map<String, String> aPs, List<String> aErrors) {
+	public boolean execute(String sql, Object[] params) {
+		boolean flag = false;
+		PreparedStatement ps = null;
+		try {
+			ps = conn.prepareStatement(sql);
+			if (params != null) {
+				for (int i = 0; i < params.length; ++i) {
+					ps.setObject(i + 1, params[i]);
+				}
+			}
+			ps.execute();
+			flag = true;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(ps, conn);
+		}
+		return flag;
+	}
+
+	public String getSQL(String aSql, Map<String, String> aPs) {
 		try {
 			for (String aKey : aPs.keySet()) {
 				String aOld = "{" + aKey + "}";
@@ -99,10 +134,9 @@ public class DBUtils {
 				aSql = aSql.replace(aOld, aNew);
 			}
 		} catch (Exception er) {
-			aErrors.add(er.getMessage());
 			log.info(er.getMessage());
 		}
-		log.info("sql: " + aSql);
+		log.info("Execute sql msg: " + aSql);
 		return aSql;
 	}
 }

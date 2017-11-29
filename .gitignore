@@ -29,6 +29,7 @@ deploy/
 javadoc/
 license/
 log/
+sql/
 
 
 # IDE generated files

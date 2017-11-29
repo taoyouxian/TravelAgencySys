@@ -25,7 +25,7 @@ public class ReadSQLUtil {
 
 	private static Logger log = Logger.getLogger(ReadSQLUtil.class);
 
-	public static String sqlSource = "F:\\FFOutput\\Eclipse\\eclipse-2016-07-25\\BT_DataSvr\\WebContent\\WEB-INF\\Sqls\\";
+	public static String sqlSource;
 
 	public static String ReadSqlFromFile(File fileName, List<String> aErrors) {
 		StringBuffer buffer = new StringBuffer();

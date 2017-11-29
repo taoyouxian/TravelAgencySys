@@ -4,7 +4,7 @@ This tutorial focuses on deploying BPEL process on Apache ODE.
 
 BPEL, business process execution language, which was written in XML. It is used to automatic process execution, and also known as WSBPEL and BPEL4WS. For more details see [BPEL-Wikipedia](https://en.wikipedia.org/wiki/Business_Process_Execution_Language).
 
-For more details, check out our branch [webServiceProj](https://github.com/taoyouxian/TravelAgencySys/tree/webServiceProj).
+For setting up a BPEL process, check out our branch [webServiceProj](https://github.com/taoyouxian/TravelAgencySys/tree/webServiceProj).
 
 ## Tutorial
 

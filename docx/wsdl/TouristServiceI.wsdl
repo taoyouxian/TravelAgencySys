@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns="http://impl.service.client.ws.iir.ruc.edu.cn" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://org.apache.axis2/xsd" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" targetNamespace="http://impl.service.client.ws.iir.ruc.edu.cn">
+    <wsdl:documentation>TouristServiceI</wsdl:documentation>
+    <wsdl:types>
+        <xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://impl.service.client.ws.iir.ruc.edu.cn">
+            <xs:element name="getTourist">
+                <xs:complexType>
+                    <xs:sequence/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getTouristResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:message name="getTouristRequest">
+        <wsdl:part name="parameters" element="ns:getTourist"/>
+    </wsdl:message>
+    <wsdl:message name="getTouristResponse">
+        <wsdl:part name="parameters" element="ns:getTouristResponse"/>
+    </wsdl:message>
+    <wsdl:portType name="TouristServiceIPortType">
+        <wsdl:operation name="getTourist">
+            <wsdl:input message="ns:getTouristRequest" wsaw:Action="urn:getTourist"/>
+            <wsdl:output message="ns:getTouristResponse" wsaw:Action="urn:getTouristResponse"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="TouristServiceISoap11Binding" type="ns:TouristServiceIPortType">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+        <wsdl:operation name="getTourist">
+            <soap:operation soapAction="urn:getTourist" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="TouristServiceISoap12Binding" type="ns:TouristServiceIPortType">
+        <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+        <wsdl:operation name="getTourist">
+            <soap12:operation soapAction="urn:getTourist" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="TouristServiceIHttpBinding" type="ns:TouristServiceIPortType">
+        <http:binding verb="POST"/>
+        <wsdl:operation name="getTourist">
+            <http:operation location="getTourist"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="TouristServiceI">
+        <wsdl:port name="TouristServiceIHttpSoap11Endpoint" binding="ns:TouristServiceISoap11Binding">
+            <soap:address location="http://localhost:8080/axis2/services/TouristServiceI.TouristServiceIHttpSoap11Endpoint/"/>
+        </wsdl:port>
+        <wsdl:port name="TouristServiceIHttpSoap12Endpoint" binding="ns:TouristServiceISoap12Binding">
+            <soap12:address location="http://localhost:8080/axis2/services/TouristServiceI.TouristServiceIHttpSoap12Endpoint/"/>
+        </wsdl:port>
+        <wsdl:port name="TouristServiceIHttpEndpoint" binding="ns:TouristServiceIHttpBinding">
+            <http:address location="http://localhost:8080/axis2/services/TouristServiceI.TouristServiceIHttpEndpoint/"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

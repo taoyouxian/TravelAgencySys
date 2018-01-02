@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns="http://impl.service.enterprise.ws.iir.ruc.edu.cn" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://org.apache.axis2/xsd" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" targetNamespace="http://impl.service.enterprise.ws.iir.ruc.edu.cn">
+    <wsdl:documentation>AttractionServiceI</wsdl:documentation>
+    <wsdl:types>
+        <xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://impl.service.enterprise.ws.iir.ruc.edu.cn">
+            <xs:element name="getAttraction">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="aOrderFields" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="aPageSize" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="aPageIndex" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="aSqlPs" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getAttractionResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="NewAttraction">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="a_location" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="a_tour_type" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="a_tour" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="NewAttractionResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="EditAttraction">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="a_location" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="a_tour_type" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="a_tour" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="id" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="EditAttractionResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="DeleteAttraction">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="id" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="DeleteAttractionResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:message name="NewAttractionRequest">
+        <wsdl:part name="parameters" element="ns:NewAttraction"/>
+    </wsdl:message>
+    <wsdl:message name="NewAttractionResponse">
+        <wsdl:part name="parameters" element="ns:NewAttractionResponse"/>
+    </wsdl:message>
+    <wsdl:message name="DeleteAttractionRequest">
+        <wsdl:part name="parameters" element="ns:DeleteAttraction"/>
+    </wsdl:message>
+    <wsdl:message name="DeleteAttractionResponse">
+        <wsdl:part name="parameters" element="ns:DeleteAttractionResponse"/>
+    </wsdl:message>
+    <wsdl:message name="getAttractionRequest">
+        <wsdl:part name="parameters" element="ns:getAttraction"/>
+    </wsdl:message>
+    <wsdl:message name="getAttractionResponse">
+        <wsdl:part name="parameters" element="ns:getAttractionResponse"/>
+    </wsdl:message>
+    <wsdl:message name="EditAttractionRequest">
+        <wsdl:part name="parameters" element="ns:EditAttraction"/>
+    </wsdl:message>
+    <wsdl:message name="EditAttractionResponse">
+        <wsdl:part name="parameters" element="ns:EditAttractionResponse"/>
+    </wsdl:message>
+    <wsdl:portType name="AttractionServiceIPortType">
+        <wsdl:operation name="NewAttraction">
+            <wsdl:input message="ns:NewAttractionRequest" wsaw:Action="urn:NewAttraction"/>
+            <wsdl:output message="ns:NewAttractionResponse" wsaw:Action="urn:NewAttractionResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="DeleteAttraction">
+            <wsdl:input message="ns:DeleteAttractionRequest" wsaw:Action="urn:DeleteAttraction"/>
+            <wsdl:output message="ns:DeleteAttractionResponse" wsaw:Action="urn:DeleteAttractionResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="getAttraction">
+            <wsdl:input message="ns:getAttractionRequest" wsaw:Action="urn:getAttraction"/>
+            <wsdl:output message="ns:getAttractionResponse" wsaw:Action="urn:getAttractionResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="EditAttraction">
+            <wsdl:input message="ns:EditAttractionRequest" wsaw:Action="urn:EditAttraction"/>
+            <wsdl:output message="ns:EditAttractionResponse" wsaw:Action="urn:EditAttractionResponse"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="AttractionServiceISoap11Binding" type="ns:AttractionServiceIPortType">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+        <wsdl:operation name="NewAttraction">
+            <soap:operation soapAction="urn:NewAttraction" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="DeleteAttraction">
+            <soap:operation soapAction="urn:DeleteAttraction" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getAttraction">
+            <soap:operation soapAction="urn:getAttraction" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="EditAttraction">
+            <soap:operation soapAction="urn:EditAttraction" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="AttractionServiceISoap12Binding" type="ns:AttractionServiceIPortType">
+        <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+        <wsdl:operation name="NewAttraction">
+            <soap12:operation soapAction="urn:NewAttraction" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="DeleteAttraction">
+            <soap12:operation soapAction="urn:DeleteAttraction" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getAttraction">
+            <soap12:operation soapAction="urn:getAttraction" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="EditAttraction">
+            <soap12:operation soapAction="urn:EditAttraction" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="AttractionServiceIHttpBinding" type="ns:AttractionServiceIPortType">
+        <http:binding verb="POST"/>
+        <wsdl:operation name="NewAttraction">
+            <http:operation location="NewAttraction"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="DeleteAttraction">
+            <http:operation location="DeleteAttraction"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getAttraction">
+            <http:operation location="getAttraction"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="EditAttraction">
+            <http:operation location="EditAttraction"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="AttractionServiceI">
+        <wsdl:port name="AttractionServiceIHttpSoap11Endpoint" binding="ns:AttractionServiceISoap11Binding">
+            <soap:address location="http://localhost:8080/axis2/services/AttractionServiceI.AttractionServiceIHttpSoap11Endpoint/"/>
+        </wsdl:port>
+        <wsdl:port name="AttractionServiceIHttpSoap12Endpoint" binding="ns:AttractionServiceISoap12Binding">
+            <soap12:address location="http://localhost:8080/axis2/services/AttractionServiceI.AttractionServiceIHttpSoap12Endpoint/"/>
+        </wsdl:port>
+        <wsdl:port name="AttractionServiceIHttpEndpoint" binding="ns:AttractionServiceIHttpBinding">
+            <http:address location="http://localhost:8080/axis2/services/AttractionServiceI.AttractionServiceIHttpEndpoint/"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

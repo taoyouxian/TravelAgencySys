@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns="http://impl.service.enterprise.ws.iir.ruc.edu.cn" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://org.apache.axis2/xsd" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" targetNamespace="http://impl.service.enterprise.ws.iir.ruc.edu.cn">
+    <wsdl:documentation>HotelServiceI</wsdl:documentation>
+    <wsdl:types>
+        <xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://impl.service.enterprise.ws.iir.ruc.edu.cn">
+            <xs:element name="getHotel">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="aOrderFields" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="aPageSize" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="aPageIndex" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="aSqlPs" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getHotelResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="NewHotel">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="h_name" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="h_code" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="h_start_time" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="h_end_time" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="h_city" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="h_t_id" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="h_s_id" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="h_p_id" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="h_b_id" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="h_a_id" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="h_price" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="NewHotelResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="EditHotel">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="h_name" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="h_code" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="h_start_time" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="h_end_time" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="h_city" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="h_t_id" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="h_s_id" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="h_p_id" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="h_b_id" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="h_a_id" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="h_price" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="id" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="EditHotelResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="DeleteHotel">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="id" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="DeleteHotelResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:message name="getHotelRequest">
+        <wsdl:part name="parameters" element="ns:getHotel"/>
+    </wsdl:message>
+    <wsdl:message name="getHotelResponse">
+        <wsdl:part name="parameters" element="ns:getHotelResponse"/>
+    </wsdl:message>
+    <wsdl:message name="NewHotelRequest">
+        <wsdl:part name="parameters" element="ns:NewHotel"/>
+    </wsdl:message>
+    <wsdl:message name="NewHotelResponse">
+        <wsdl:part name="parameters" element="ns:NewHotelResponse"/>
+    </wsdl:message>
+    <wsdl:message name="EditHotelRequest">
+        <wsdl:part name="parameters" element="ns:EditHotel"/>
+    </wsdl:message>
+    <wsdl:message name="EditHotelResponse">
+        <wsdl:part name="parameters" element="ns:EditHotelResponse"/>
+    </wsdl:message>
+    <wsdl:message name="DeleteHotelRequest">
+        <wsdl:part name="parameters" element="ns:DeleteHotel"/>
+    </wsdl:message>
+    <wsdl:message name="DeleteHotelResponse">
+        <wsdl:part name="parameters" element="ns:DeleteHotelResponse"/>
+    </wsdl:message>
+    <wsdl:portType name="HotelServiceIPortType">
+        <wsdl:operation name="getHotel">
+            <wsdl:input message="ns:getHotelRequest" wsaw:Action="urn:getHotel"/>
+            <wsdl:output message="ns:getHotelResponse" wsaw:Action="urn:getHotelResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="NewHotel">
+            <wsdl:input message="ns:NewHotelRequest" wsaw:Action="urn:NewHotel"/>
+            <wsdl:output message="ns:NewHotelResponse" wsaw:Action="urn:NewHotelResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="EditHotel">
+            <wsdl:input message="ns:EditHotelRequest" wsaw:Action="urn:EditHotel"/>
+            <wsdl:output message="ns:EditHotelResponse" wsaw:Action="urn:EditHotelResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="DeleteHotel">
+            <wsdl:input message="ns:DeleteHotelRequest" wsaw:Action="urn:DeleteHotel"/>
+            <wsdl:output message="ns:DeleteHotelResponse" wsaw:Action="urn:DeleteHotelResponse"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="HotelServiceISoap11Binding" type="ns:HotelServiceIPortType">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+        <wsdl:operation name="getHotel">
+            <soap:operation soapAction="urn:getHotel" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="NewHotel">
+            <soap:operation soapAction="urn:NewHotel" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="EditHotel">
+            <soap:operation soapAction="urn:EditHotel" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="DeleteHotel">
+            <soap:operation soapAction="urn:DeleteHotel" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="HotelServiceISoap12Binding" type="ns:HotelServiceIPortType">
+        <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+        <wsdl:operation name="getHotel">
+            <soap12:operation soapAction="urn:getHotel" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="NewHotel">
+            <soap12:operation soapAction="urn:NewHotel" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="EditHotel">
+            <soap12:operation soapAction="urn:EditHotel" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="DeleteHotel">
+            <soap12:operation soapAction="urn:DeleteHotel" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="HotelServiceIHttpBinding" type="ns:HotelServiceIPortType">
+        <http:binding verb="POST"/>
+        <wsdl:operation name="getHotel">
+            <http:operation location="getHotel"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="NewHotel">
+            <http:operation location="NewHotel"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="EditHotel">
+            <http:operation location="EditHotel"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="DeleteHotel">
+            <http:operation location="DeleteHotel"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="HotelServiceI">
+        <wsdl:port name="HotelServiceIHttpSoap11Endpoint" binding="ns:HotelServiceISoap11Binding">
+            <soap:address location="http://localhost:8080/axis2/services/HotelServiceI.HotelServiceIHttpSoap11Endpoint/"/>
+        </wsdl:port>
+        <wsdl:port name="HotelServiceIHttpSoap12Endpoint" binding="ns:HotelServiceISoap12Binding">
+            <soap12:address location="http://localhost:8080/axis2/services/HotelServiceI.HotelServiceIHttpSoap12Endpoint/"/>
+        </wsdl:port>
+        <wsdl:port name="HotelServiceIHttpEndpoint" binding="ns:HotelServiceIHttpBinding">
+            <http:address location="http://localhost:8080/axis2/services/HotelServiceI.HotelServiceIHttpEndpoint/"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

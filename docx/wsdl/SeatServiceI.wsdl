@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns="http://impl.service.enterprise.ws.iir.ruc.edu.cn" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://org.apache.axis2/xsd" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" targetNamespace="http://impl.service.enterprise.ws.iir.ruc.edu.cn">
+    <wsdl:documentation>SeatServiceI</wsdl:documentation>
+    <wsdl:types>
+        <xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://impl.service.enterprise.ws.iir.ruc.edu.cn">
+            <xs:element name="getSeat">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="hid" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getSeatResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="NewSeat">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="s_f_id" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="s_num" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="s_type" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="s_daily_price" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="NewSeatResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="EditSeat">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="s_f_id" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="s_num" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="s_type" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="s_daily_price" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="id" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="EditSeatResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="DeleteSeat">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="id" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="DeleteSeatResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:message name="NewSeatRequest">
+        <wsdl:part name="parameters" element="ns:NewSeat"/>
+    </wsdl:message>
+    <wsdl:message name="NewSeatResponse">
+        <wsdl:part name="parameters" element="ns:NewSeatResponse"/>
+    </wsdl:message>
+    <wsdl:message name="EditSeatRequest">
+        <wsdl:part name="parameters" element="ns:EditSeat"/>
+    </wsdl:message>
+    <wsdl:message name="EditSeatResponse">
+        <wsdl:part name="parameters" element="ns:EditSeatResponse"/>
+    </wsdl:message>
+    <wsdl:message name="getSeatRequest">
+        <wsdl:part name="parameters" element="ns:getSeat"/>
+    </wsdl:message>
+    <wsdl:message name="getSeatResponse">
+        <wsdl:part name="parameters" element="ns:getSeatResponse"/>
+    </wsdl:message>
+    <wsdl:message name="DeleteSeatRequest">
+        <wsdl:part name="parameters" element="ns:DeleteSeat"/>
+    </wsdl:message>
+    <wsdl:message name="DeleteSeatResponse">
+        <wsdl:part name="parameters" element="ns:DeleteSeatResponse"/>
+    </wsdl:message>
+    <wsdl:portType name="SeatServiceIPortType">
+        <wsdl:operation name="NewSeat">
+            <wsdl:input message="ns:NewSeatRequest" wsaw:Action="urn:NewSeat"/>
+            <wsdl:output message="ns:NewSeatResponse" wsaw:Action="urn:NewSeatResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="EditSeat">
+            <wsdl:input message="ns:EditSeatRequest" wsaw:Action="urn:EditSeat"/>
+            <wsdl:output message="ns:EditSeatResponse" wsaw:Action="urn:EditSeatResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="getSeat">
+            <wsdl:input message="ns:getSeatRequest" wsaw:Action="urn:getSeat"/>
+            <wsdl:output message="ns:getSeatResponse" wsaw:Action="urn:getSeatResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="DeleteSeat">
+            <wsdl:input message="ns:DeleteSeatRequest" wsaw:Action="urn:DeleteSeat"/>
+            <wsdl:output message="ns:DeleteSeatResponse" wsaw:Action="urn:DeleteSeatResponse"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="SeatServiceISoap11Binding" type="ns:SeatServiceIPortType">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+        <wsdl:operation name="NewSeat">
+            <soap:operation soapAction="urn:NewSeat" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="EditSeat">
+            <soap:operation soapAction="urn:EditSeat" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getSeat">
+            <soap:operation soapAction="urn:getSeat" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="DeleteSeat">
+            <soap:operation soapAction="urn:DeleteSeat" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="SeatServiceISoap12Binding" type="ns:SeatServiceIPortType">
+        <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+        <wsdl:operation name="NewSeat">
+            <soap12:operation soapAction="urn:NewSeat" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="EditSeat">
+            <soap12:operation soapAction="urn:EditSeat" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getSeat">
+            <soap12:operation soapAction="urn:getSeat" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="DeleteSeat">
+            <soap12:operation soapAction="urn:DeleteSeat" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="SeatServiceIHttpBinding" type="ns:SeatServiceIPortType">
+        <http:binding verb="POST"/>
+        <wsdl:operation name="NewSeat">
+            <http:operation location="NewSeat"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="EditSeat">
+            <http:operation location="EditSeat"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getSeat">
+            <http:operation location="getSeat"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="DeleteSeat">
+            <http:operation location="DeleteSeat"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="SeatServiceI">
+        <wsdl:port name="SeatServiceIHttpSoap11Endpoint" binding="ns:SeatServiceISoap11Binding">
+            <soap:address location="http://localhost:8080/axis2/services/SeatServiceI.SeatServiceIHttpSoap11Endpoint/"/>
+        </wsdl:port>
+        <wsdl:port name="SeatServiceIHttpSoap12Endpoint" binding="ns:SeatServiceISoap12Binding">
+            <soap12:address location="http://localhost:8080/axis2/services/SeatServiceI.SeatServiceIHttpSoap12Endpoint/"/>
+        </wsdl:port>
+        <wsdl:port name="SeatServiceIHttpEndpoint" binding="ns:SeatServiceIHttpBinding">
+            <http:address location="http://localhost:8080/axis2/services/SeatServiceI.SeatServiceIHttpEndpoint/"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

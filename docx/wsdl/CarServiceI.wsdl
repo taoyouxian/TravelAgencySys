@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns="http://impl.service.enterprise.ws.iir.ruc.edu.cn" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://org.apache.axis2/xsd" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" targetNamespace="http://impl.service.enterprise.ws.iir.ruc.edu.cn">
+    <wsdl:documentation>CarServiceI</wsdl:documentation>
+    <wsdl:types>
+        <xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://impl.service.enterprise.ws.iir.ruc.edu.cn">
+            <xs:element name="getCar">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="aOrderFields" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="aPageSize" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="aPageIndex" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="aSqlPs" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getCarResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="NewCar">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="c_lease_addr" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="c_return_addr" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="c_lease_time" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="c_return_time" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="c_recommend_com" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="c_s_id" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="c_pre_id" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="c_pri_id" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="c_ty_id" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="c_tr_id" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="c_daily_price" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="NewCarResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="EditCar">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="c_lease_addr" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="c_return_addr" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="c_lease_time" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="c_return_time" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="c_recommend_com" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="c_s_id" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="c_pre_id" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="c_pri_id" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="c_ty_id" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="c_tr_id" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="c_daily_price" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="id" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="EditCarResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="DeleteCar">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="id" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="DeleteCarResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:message name="NewCarRequest">
+        <wsdl:part name="parameters" element="ns:NewCar"/>
+    </wsdl:message>
+    <wsdl:message name="NewCarResponse">
+        <wsdl:part name="parameters" element="ns:NewCarResponse"/>
+    </wsdl:message>
+    <wsdl:message name="EditCarRequest">
+        <wsdl:part name="parameters" element="ns:EditCar"/>
+    </wsdl:message>
+    <wsdl:message name="EditCarResponse">
+        <wsdl:part name="parameters" element="ns:EditCarResponse"/>
+    </wsdl:message>
+    <wsdl:message name="getCarRequest">
+        <wsdl:part name="parameters" element="ns:getCar"/>
+    </wsdl:message>
+    <wsdl:message name="getCarResponse">
+        <wsdl:part name="parameters" element="ns:getCarResponse"/>
+    </wsdl:message>
+    <wsdl:message name="DeleteCarRequest">
+        <wsdl:part name="parameters" element="ns:DeleteCar"/>
+    </wsdl:message>
+    <wsdl:message name="DeleteCarResponse">
+        <wsdl:part name="parameters" element="ns:DeleteCarResponse"/>
+    </wsdl:message>
+    <wsdl:portType name="CarServiceIPortType">
+        <wsdl:operation name="NewCar">
+            <wsdl:input message="ns:NewCarRequest" wsaw:Action="urn:NewCar"/>
+            <wsdl:output message="ns:NewCarResponse" wsaw:Action="urn:NewCarResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="EditCar">
+            <wsdl:input message="ns:EditCarRequest" wsaw:Action="urn:EditCar"/>
+            <wsdl:output message="ns:EditCarResponse" wsaw:Action="urn:EditCarResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="getCar">
+            <wsdl:input message="ns:getCarRequest" wsaw:Action="urn:getCar"/>
+            <wsdl:output message="ns:getCarResponse" wsaw:Action="urn:getCarResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="DeleteCar">
+            <wsdl:input message="ns:DeleteCarRequest" wsaw:Action="urn:DeleteCar"/>
+            <wsdl:output message="ns:DeleteCarResponse" wsaw:Action="urn:DeleteCarResponse"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="CarServiceISoap11Binding" type="ns:CarServiceIPortType">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+        <wsdl:operation name="NewCar">
+            <soap:operation soapAction="urn:NewCar" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="EditCar">
+            <soap:operation soapAction="urn:EditCar" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getCar">
+            <soap:operation soapAction="urn:getCar" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="DeleteCar">
+            <soap:operation soapAction="urn:DeleteCar" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="CarServiceISoap12Binding" type="ns:CarServiceIPortType">
+        <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+        <wsdl:operation name="NewCar">
+            <soap12:operation soapAction="urn:NewCar" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="EditCar">
+            <soap12:operation soapAction="urn:EditCar" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getCar">
+            <soap12:operation soapAction="urn:getCar" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="DeleteCar">
+            <soap12:operation soapAction="urn:DeleteCar" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="CarServiceIHttpBinding" type="ns:CarServiceIPortType">
+        <http:binding verb="POST"/>
+        <wsdl:operation name="NewCar">
+            <http:operation location="NewCar"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="EditCar">
+            <http:operation location="EditCar"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getCar">
+            <http:operation location="getCar"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="DeleteCar">
+            <http:operation location="DeleteCar"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="CarServiceI">
+        <wsdl:port name="CarServiceIHttpSoap11Endpoint" binding="ns:CarServiceISoap11Binding">
+            <soap:address location="http://localhost:8080/axis2/services/CarServiceI.CarServiceIHttpSoap11Endpoint/"/>
+        </wsdl:port>
+        <wsdl:port name="CarServiceIHttpSoap12Endpoint" binding="ns:CarServiceISoap12Binding">
+            <soap12:address location="http://localhost:8080/axis2/services/CarServiceI.CarServiceIHttpSoap12Endpoint/"/>
+        </wsdl:port>
+        <wsdl:port name="CarServiceIHttpEndpoint" binding="ns:CarServiceIHttpBinding">
+            <http:address location="http://localhost:8080/axis2/services/CarServiceI.CarServiceIHttpEndpoint/"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

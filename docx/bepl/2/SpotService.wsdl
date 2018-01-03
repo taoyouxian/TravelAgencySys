@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://spot.example.ws" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://spot.example.ws" xmlns:intf="http://spot.example.ws" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://spot.example.ws" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="getSpot">
+    <complexType>
+     <sequence>
+      <element name="destination" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getSpotResponse">
+    <complexType>
+     <sequence>
+      <element name="getSpotReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getTour">
+    <complexType>
+     <sequence>
+      <element name="destination" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getTourResponse">
+    <complexType>
+     <sequence>
+      <element name="getTourReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="getSpotRequest">
+
+      <wsdl:part element="impl:getSpot" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getTourRequest">
+
+      <wsdl:part element="impl:getTour" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getSpotResponse">
+
+      <wsdl:part element="impl:getSpotResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getTourResponse">
+
+      <wsdl:part element="impl:getTourResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="SpotService">
+
+      <wsdl:operation name="getSpot">
+
+         <wsdl:input message="impl:getSpotRequest" name="getSpotRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getSpotResponse" name="getSpotResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getTour">
+
+         <wsdl:input message="impl:getTourRequest" name="getTourRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getTourResponse" name="getTourResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="SpotServiceSoapBinding" type="impl:SpotService">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="getSpot">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getSpotRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getSpotResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getTour">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getTourRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getTourResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="SpotServiceService">
+
+      <wsdl:port binding="impl:SpotServiceSoapBinding" name="SpotService">
+
+         <wsdlsoap:address location="http://localhost:8080/webServiceProj/services/SpotService"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

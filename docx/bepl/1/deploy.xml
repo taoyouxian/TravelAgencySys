@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<deploy xmlns="http://www.apache.org/ode/schemas/dd/2007/03" xmlns:impl.service.iir.ruc.edu.cn="http://impl.service.iir.ruc.edu.cn" xmlns:sample="http://www.ruc.edu.cn/bpel/sample">
+  <process name="sample:TravleProcess">
+    <active>true</active>
+    <retired>false</retired>
+    <process-events generate="all"/>
+    <provide partnerLink="client">
+      <service name="sample:TravleProcessService" port="TravleProcessPort"/>
+    </provide>
+    <invoke partnerLink="acGetTablePL">
+      <service name="impl.service.iir.ruc.edu.cn:TravelServiceI" port="TravelServiceIHttpSoap11Endpoint"/>
+    </invoke>
+  </process>
+</deploy>

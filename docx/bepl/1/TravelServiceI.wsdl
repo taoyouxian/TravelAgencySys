@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ax215="http://model.si.hhuc.edu.cn/xsd" xmlns:ns="http://impl.service.iir.ruc.edu.cn" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://org.apache.axis2/xsd" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" targetNamespace="http://impl.service.iir.ruc.edu.cn">
+    <wsdl:documentation>TravelServiceI</wsdl:documentation>
+    <wsdl:types>
+        <xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://model.si.hhuc.edu.cn/xsd">
+            <xs:complexType name="TsCmdResult">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="datas" nillable="true" type="xs:anyType"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="debugInfos" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="state" type="xs:int"/>
+                </xs:sequence>
+            </xs:complexType>
+        </xs:schema>
+        <xs:schema xmlns:ax216="http://model.si.hhuc.edu.cn/xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://impl.service.iir.ruc.edu.cn">
+            <xs:import namespace="http://model.si.hhuc.edu.cn/xsd"/>
+            <xs:element name="getResultJson">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="j" nillable="true" type="ax215:TsCmdResult"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getResultJsonResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="acGetTable">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="aSqlPath" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="aSqlPs" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="acGetTableResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="acGetPageTable">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="aSqlPath" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="aOrderFields" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="aPageSize" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="aPageIndex" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="aSqlPs" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="acGetPageTableResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="acGetDs">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="aTables" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="aSqlPs" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="acGetDsResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="acExecuteSql">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="aSqlPath" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="aSqlPs" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="acExecuteSqlResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:message name="acGetPageTableRequest">
+        <wsdl:part name="parameters" element="ns:acGetPageTable"/>
+    </wsdl:message>
+    <wsdl:message name="acGetPageTableResponse">
+        <wsdl:part name="parameters" element="ns:acGetPageTableResponse"/>
+    </wsdl:message>
+    <wsdl:message name="acExecuteSqlRequest">
+        <wsdl:part name="parameters" element="ns:acExecuteSql"/>
+    </wsdl:message>
+    <wsdl:message name="acExecuteSqlResponse">
+        <wsdl:part name="parameters" element="ns:acExecuteSqlResponse"/>
+    </wsdl:message>
+    <wsdl:message name="acGetDsRequest">
+        <wsdl:part name="parameters" element="ns:acGetDs"/>
+    </wsdl:message>
+    <wsdl:message name="acGetDsResponse">
+        <wsdl:part name="parameters" element="ns:acGetDsResponse"/>
+    </wsdl:message>
+    <wsdl:message name="acGetTableRequest">
+        <wsdl:part name="parameters" element="ns:acGetTable"/>
+    </wsdl:message>
+    <wsdl:message name="acGetTableResponse">
+        <wsdl:part name="parameters" element="ns:acGetTableResponse"/>
+    </wsdl:message>
+    <wsdl:message name="getResultJsonRequest">
+        <wsdl:part name="parameters" element="ns:getResultJson"/>
+    </wsdl:message>
+    <wsdl:message name="getResultJsonResponse">
+        <wsdl:part name="parameters" element="ns:getResultJsonResponse"/>
+    </wsdl:message>
+    <wsdl:portType name="TravelServiceIPortType">
+        <wsdl:operation name="acGetPageTable">
+            <wsdl:input message="ns:acGetPageTableRequest" wsaw:Action="urn:acGetPageTable"/>
+            <wsdl:output message="ns:acGetPageTableResponse" wsaw:Action="urn:acGetPageTableResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="acExecuteSql">
+            <wsdl:input message="ns:acExecuteSqlRequest" wsaw:Action="urn:acExecuteSql"/>
+            <wsdl:output message="ns:acExecuteSqlResponse" wsaw:Action="urn:acExecuteSqlResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="acGetDs">
+            <wsdl:input message="ns:acGetDsRequest" wsaw:Action="urn:acGetDs"/>
+            <wsdl:output message="ns:acGetDsResponse" wsaw:Action="urn:acGetDsResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="acGetTable">
+            <wsdl:input message="ns:acGetTableRequest" wsaw:Action="urn:acGetTable"/>
+            <wsdl:output message="ns:acGetTableResponse" wsaw:Action="urn:acGetTableResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="getResultJson">
+            <wsdl:input message="ns:getResultJsonRequest" wsaw:Action="urn:getResultJson"/>
+            <wsdl:output message="ns:getResultJsonResponse" wsaw:Action="urn:getResultJsonResponse"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="TravelServiceISoap11Binding" type="ns:TravelServiceIPortType">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+        <wsdl:operation name="acGetPageTable">
+            <soap:operation soapAction="urn:acGetPageTable" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="acExecuteSql">
+            <soap:operation soapAction="urn:acExecuteSql" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="acGetDs">
+            <soap:operation soapAction="urn:acGetDs" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="acGetTable">
+            <soap:operation soapAction="urn:acGetTable" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getResultJson">
+            <soap:operation soapAction="urn:getResultJson" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="TravelServiceISoap12Binding" type="ns:TravelServiceIPortType">
+        <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+        <wsdl:operation name="acGetPageTable">
+            <soap12:operation soapAction="urn:acGetPageTable" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="acExecuteSql">
+            <soap12:operation soapAction="urn:acExecuteSql" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="acGetDs">
+            <soap12:operation soapAction="urn:acGetDs" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="acGetTable">
+            <soap12:operation soapAction="urn:acGetTable" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getResultJson">
+            <soap12:operation soapAction="urn:getResultJson" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="TravelServiceIHttpBinding" type="ns:TravelServiceIPortType">
+        <http:binding verb="POST"/>
+        <wsdl:operation name="acGetPageTable">
+            <http:operation location="acGetPageTable"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="acExecuteSql">
+            <http:operation location="acExecuteSql"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="acGetDs">
+            <http:operation location="acGetDs"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="acGetTable">
+            <http:operation location="acGetTable"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getResultJson">
+            <http:operation location="getResultJson"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="TravelServiceI">
+        <wsdl:port name="TravelServiceIHttpSoap11Endpoint" binding="ns:TravelServiceISoap11Binding">
+            <soap:address location="http://localhost:9080/axis2/services/TravelServiceI.TravelServiceIHttpSoap11Endpoint/"/>
+        </wsdl:port>
+        <wsdl:port name="TravelServiceIHttpSoap12Endpoint" binding="ns:TravelServiceISoap12Binding">
+            <soap12:address location="http://localhost:9080/axis2/services/TravelServiceI.TravelServiceIHttpSoap12Endpoint/"/>
+        </wsdl:port>
+        <wsdl:port name="TravelServiceIHttpEndpoint" binding="ns:TravelServiceIHttpBinding">
+            <http:address location="http://localhost:9080/axis2/services/TravelServiceI.TravelServiceIHttpEndpoint/"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

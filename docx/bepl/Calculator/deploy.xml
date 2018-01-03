@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<deploy xmlns="http://www.apache.org/ode/schemas/dd/2007/03" xmlns:sample="http://www.ruc.edu.cn/bpel/sample" xmlns:service.example.iir.ruc.edu.cn="http://service.example.iir.ruc.edu.cn" xmlns:sub.example.iir.ruc.edu.cn="http://sub.example.iir.ruc.edu.cn">
+  <process name="sample:CalculateProcess">
+    <active>true</active>
+    <retired>false</retired>
+    <process-events generate="all"/>
+    <provide partnerLink="client">
+      <service name="sample:CalculateProcessService" port="CalculateProcessPort"/>
+    </provide>
+    <invoke partnerLink="subPLT">
+      <service name="sub.example.iir.ruc.edu.cn:SubServiceService" port="SubService"/>
+    </invoke>
+    <invoke partnerLink="divPLT">
+      <service name="service.example.iir.ruc.edu.cn:DivServiceService" port="DivService"/>
+    </invoke>
+  </process>
+</deploy>

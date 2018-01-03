@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.ruc.edu.cn/bpel/sample" xmlns:vprop="http://docs.oasis-open.org/wsbpel/2.0/varprop" xmlns:wsdl="http://add.example.iir.ruc.edu.cn" xmlns:wsdl1="http://sub.example.iir.ruc.edu.cn" xmlns:wsdl2="http://service.example.iir.ruc.edu.cn" name="CalculateProcess" targetNamespace="http://www.ruc.edu.cn/bpel/sample">
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     TYPE DEFINITION - List of types participating in this BPEL process 
+     The BPEL Designer will generate default request and response types
+     but you can define or import any XML Schema type and use them as part 
+     of the message types.
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->    
+    <plnk:partnerLinkType name="addPLT">
+    <plnk:role name="addProvider" portType="wsdl:AddService"/>
+  </plnk:partnerLinkType>
+    <plnk:partnerLinkType name="subPL">
+    <plnk:role name="subProvider" portType="wsdl1:SubService"/>
+  </plnk:partnerLinkType> 
+    <plnk:partnerLinkType name="divPLT">
+    <plnk:role name="divProvider" portType="wsdl2:DivService"/>
+  </plnk:partnerLinkType>
+    <import location="SubService.wsdl" namespace="http://sub.example.iir.ruc.edu.cn"/>
+    <import location="DivService.wsdl" namespace="http://service.example.iir.ruc.edu.cn"/>
+    <types>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ruc.edu.cn/bpel/sample">
+
+            <element name="CalculateProcessRequest">
+                <complexType>
+                    <sequence>
+                    	<element name="d1" type="double"/>
+                    	<element name="d2" type="double"/>
+                    	<element name="type" type="string"/>
+                    </sequence>
+                </complexType>
+            </element>
+
+            <element name="CalculateProcessResponse">
+                <complexType>
+                    <sequence>
+                        <element name="result" type="double"/>
+                    </sequence>
+                </complexType>
+            </element>
+        </schema>
+    </types>
+
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     MESSAGE TYPE DEFINITION - Definition of the message types used as 
+     part of the port type defintions
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->    
+    <message name="CalculateProcessRequestMessage">
+        <part element="tns:CalculateProcessRequest" name="payload"/>
+    </message>
+    <message name="CalculateProcessResponseMessage">
+        <part element="tns:CalculateProcessResponse" name="payload"/>
+    </message>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     PORT TYPE DEFINITION - A port type groups a set of operations into
+     a logical service unit.
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->    
+
+    <!-- portType implemented by the CalculateProcess BPEL process -->
+    <portType name="CalculateProcess">
+        <operation name="process">
+            <input message="tns:CalculateProcessRequestMessage"/>
+            <output message="tns:CalculateProcessResponseMessage"/>
+        </operation>
+    </portType>   
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     PARTNER LINK TYPE DEFINITION
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->    
+    <plnk:partnerLinkType name="CalculateProcess">
+        <plnk:role name="CalculateProcessProvider" portType="tns:CalculateProcess"/>
+    </plnk:partnerLinkType>
+    
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     BINDING DEFINITION - Defines the message format and protocol details
+     for a web service.
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <binding name="CalculateProcessBinding" type="tns:CalculateProcess">
+    	<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    	<operation name="process">
+    		<soap:operation soapAction="http://www.ruc.edu.cn/bpel/sample/process"/>
+    		<input>
+    			<soap:body use="literal"/>
+    		</input>
+    		<output>
+    			<soap:body use="literal"/>
+    		</output>
+    	</operation>
+    </binding>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     SERVICE DEFINITION - A service groups a set of ports into
+     a service unit.
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <service name="CalculateProcessService">
+    	<port binding="tns:CalculateProcessBinding" name="CalculateProcessPort">
+    		<soap:address location="http://localhost:8080/ode/processes/CalculateProcess"/>
+    	</port>
+    </service>
+</definitions>

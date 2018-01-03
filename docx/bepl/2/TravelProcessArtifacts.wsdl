@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://sample.bpel.org/bpel/sample" xmlns:vprop="http://docs.oasis-open.org/wsbpel/2.0/varprop" xmlns:wsdl="http://spot.example.ws" xmlns:wsdl1="http://hotel.example.ws" xmlns:wsdl2="http://airline.example.ws" xmlns:wsdl3="http://rentalCar.example.ws" name="TravelProcess" targetNamespace="http://sample.bpel.org/bpel/sample">
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     TYPE DEFINITION - List of types participating in this BPEL process 
+     The BPEL Designer will generate default request and response types
+     but you can define or import any XML Schema type and use them as part 
+     of the message types.
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->    
+    <plnk:partnerLinkType name="spotPLT">
+    <plnk:role name="spotProvider" portType="wsdl:SpotService"/>
+  </plnk:partnerLinkType>
+    <plnk:partnerLinkType name="hotelPLT">
+    <plnk:role name="hotelProvider" portType="wsdl1:HotelService"/>
+  </plnk:partnerLinkType>
+    <plnk:partnerLinkType name="airlinePLT">
+    <plnk:role name="airlineProvider" portType="wsdl2:AirlineService"/>
+  </plnk:partnerLinkType>
+    <plnk:partnerLinkType name="rentalCarPLT">
+    <plnk:role name="rentalCarProvider" portType="wsdl3:RentalCarService"/>
+  </plnk:partnerLinkType>
+    <import location="SpotService.wsdl" namespace="http://spot.example.ws"/>
+    <import location="HotelService.wsdl" namespace="http://hotel.example.ws"/>
+    <import location="AirlineService.wsdl" namespace="http://airline.example.ws"/>
+    <import location="RentalCarService.wsdl" namespace="http://rentalCar.example.ws"/>
+    <types>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://sample.bpel.org/bpel/sample">
+
+            <element name="TravelProcessRequest">
+                <complexType>
+                    <sequence>
+                    	<element name="出发时间" type="string" />
+                    	<element name="返回时间" type="string" />
+                    	<element name="出发城市" type="string" />
+                    	<element name="目的地" type="string" />
+                    	<element name="总预算" type="double" />
+                    	<element name="是否经济舱" type="string" />
+                    	<element name="车型" type="string" />
+                    	<element name="是否手动挡" type="string" />
+                    	<element name="租车地点" type="string" />
+                    	<element name="还车地点" type="string" />
+                    	<element name="租车偏好" type="string"></element>
+                    </sequence>
+                </complexType>
+            </element>
+
+            <element name="TravelProcessResponse">
+                <complexType>
+                    <sequence>
+                    	<element name="推荐酒店" type="string" />
+                    	<element name="酒店预算" type="string"></element>
+                    	<element name="推荐机票" type="string" />
+                    	<element name="机票预算" type="string"></element>
+                    	<element name="推荐景点" type="string" />
+                    	<element name="推荐导游" type="string" />
+                    	<element name="推荐租车" type="string" />
+                    	<element name="租车预算" type="string"></element>
+                    	<element name="剩余预算" type="double" />
+                    </sequence>
+                </complexType>
+            </element>
+        </schema>
+    </types>
+
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     MESSAGE TYPE DEFINITION - Definition of the message types used as 
+     part of the port type defintions
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->    
+    <message name="TravelProcessRequestMessage">
+        <part element="tns:TravelProcessRequest" name="payload"/>
+    </message>
+    <message name="TravelProcessResponseMessage">
+        <part element="tns:TravelProcessResponse" name="payload"/>
+    </message>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     PORT TYPE DEFINITION - A port type groups a set of operations into
+     a logical service unit.
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->    
+
+    <!-- portType implemented by the TravelProcess BPEL process -->
+    <portType name="TravelProcess">
+        <operation name="process">
+            <input message="tns:TravelProcessRequestMessage"/>
+            <output message="tns:TravelProcessResponseMessage"/>
+        </operation>
+    </portType>   
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     PARTNER LINK TYPE DEFINITION
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->    
+    <plnk:partnerLinkType name="TravelProcess">
+        <plnk:role name="TravelProcessProvider" portType="tns:TravelProcess"/>
+    </plnk:partnerLinkType>
+    
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     BINDING DEFINITION - Defines the message format and protocol details
+     for a web service.
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <binding name="TravelProcessBinding" type="tns:TravelProcess">
+    	<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    	<operation name="process">
+    		<soap:operation soapAction="http://sample.bpel.org/bpel/sample/process"/>
+    		<input>
+    			<soap:body use="literal"/>
+    		</input>
+    		<output>
+    			<soap:body use="literal"/>
+    		</output>
+    	</operation>
+    </binding>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     SERVICE DEFINITION - A service groups a set of ports into
+     a service unit.
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <service name="TravelProcessService">
+    	<port binding="tns:TravelProcessBinding" name="TravelProcessPort">
+    		<soap:address location="http://localhost:8080/ode/processes/TravelProcess"/>
+    	</port>
+    </service>
+</definitions>

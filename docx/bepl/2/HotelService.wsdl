@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://hotel.example.ws" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://hotel.example.ws" xmlns:intf="http://hotel.example.ws" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://hotel.example.ws" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="getHotelPrice">
+    <complexType>
+     <sequence>
+      <element name="startDate" type="xsd:string"/>
+      <element name="endDate" type="xsd:string"/>
+      <element name="city" type="xsd:string"/>
+      <element name="price" type="xsd:double"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getHotelPriceResponse">
+    <complexType>
+     <sequence>
+      <element name="getHotelPriceReturn" type="xsd:double"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getHotel">
+    <complexType>
+     <sequence>
+      <element name="startDate" type="xsd:string"/>
+      <element name="endDate" type="xsd:string"/>
+      <element name="city" type="xsd:string"/>
+      <element name="price" type="xsd:double"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getHotelResponse">
+    <complexType>
+     <sequence>
+      <element name="getHotelReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="getHotelPriceResponse">
+
+      <wsdl:part element="impl:getHotelPriceResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getHotelPriceRequest">
+
+      <wsdl:part element="impl:getHotelPrice" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getHotelResponse">
+
+      <wsdl:part element="impl:getHotelResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getHotelRequest">
+
+      <wsdl:part element="impl:getHotel" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="HotelService">
+
+      <wsdl:operation name="getHotelPrice">
+
+         <wsdl:input message="impl:getHotelPriceRequest" name="getHotelPriceRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getHotelPriceResponse" name="getHotelPriceResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getHotel">
+
+         <wsdl:input message="impl:getHotelRequest" name="getHotelRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getHotelResponse" name="getHotelResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="HotelServiceSoapBinding" type="impl:HotelService">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="getHotelPrice">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getHotelPriceRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getHotelPriceResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getHotel">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getHotelRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getHotelResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="HotelServiceService">
+
+      <wsdl:port binding="impl:HotelServiceSoapBinding" name="HotelService">
+
+         <wsdlsoap:address location="http://222.29.196.133:8081/webServiceProj/services/HotelService"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://rentalCar.example.ws" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://rentalCar.example.ws" xmlns:intf="http://rentalCar.example.ws" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://rentalCar.example.ws" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="main">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" name="args" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="mainResponse">
+    <complexType/>
+   </element>
+   <element name="getRentalCar">
+    <complexType>
+     <sequence>
+      <element name="CarType" type="xsd:string"/>
+      <element name="MT_AT" type="xsd:string"/>
+      <element name="Dep_City" type="xsd:string"/>
+      <element name="Des_Ctiy" type="xsd:string"/>
+      <element name="StartUse_Date" type="xsd:string"/>
+      <element name="StopUse_Date" type="xsd:string"/>
+      <element name="Preference" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getRentalCarResponse">
+    <complexType>
+     <sequence>
+      <element name="getRentalCarReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getRentalCarPrice">
+    <complexType>
+     <sequence>
+      <element name="CarType" type="xsd:string"/>
+      <element name="MT_AT" type="xsd:string"/>
+      <element name="Dep_City" type="xsd:string"/>
+      <element name="Des_Ctiy" type="xsd:string"/>
+      <element name="StartUse_Date" type="xsd:string"/>
+      <element name="StopUse_Date" type="xsd:string"/>
+      <element name="Preference" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getRentalCarPriceResponse">
+    <complexType>
+     <sequence>
+      <element name="getRentalCarPriceReturn" type="xsd:double"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="getRentalCarPriceResponse">
+
+      <wsdl:part element="impl:getRentalCarPriceResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="mainResponse">
+
+      <wsdl:part element="impl:mainResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="mainRequest">
+
+      <wsdl:part element="impl:main" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getRentalCarPriceRequest">
+
+      <wsdl:part element="impl:getRentalCarPrice" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getRentalCarRequest">
+
+      <wsdl:part element="impl:getRentalCar" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getRentalCarResponse">
+
+      <wsdl:part element="impl:getRentalCarResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="RentalCarService">
+
+      <wsdl:operation name="main">
+
+         <wsdl:input message="impl:mainRequest" name="mainRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:mainResponse" name="mainResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getRentalCar">
+
+         <wsdl:input message="impl:getRentalCarRequest" name="getRentalCarRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getRentalCarResponse" name="getRentalCarResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getRentalCarPrice">
+
+         <wsdl:input message="impl:getRentalCarPriceRequest" name="getRentalCarPriceRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getRentalCarPriceResponse" name="getRentalCarPriceResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="RentalCarServiceSoapBinding" type="impl:RentalCarService">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="main">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="mainRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="mainResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getRentalCar">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getRentalCarRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getRentalCarResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getRentalCarPrice">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getRentalCarPriceRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getRentalCarPriceResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="RentalCarServiceService">
+
+      <wsdl:port binding="impl:RentalCarServiceSoapBinding" name="RentalCarService">
+
+         <wsdlsoap:address location="http://10.77.30.233:8080/webServiceProj/services/RentalCarService"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

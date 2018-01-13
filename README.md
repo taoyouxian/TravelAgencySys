@@ -6,6 +6,23 @@ BPEL, business process execution language, which was written in XML. It is used 
 
 For setting up a BPEL process, check out our branch [webServiceProj](https://github.com/taoyouxian/TravelAgencySys/tree/webServiceProj).
 
+# Demonstration
+- Journey Plan
+
+![IMAGE](https://github.com/taoyouxian/TravelAgencySys/blob/master/docx/images/2018-01-01_212857.png)
+
+- Flight
+
+![IMAGE](https://github.com/taoyouxian/TravelAgencySys/blob/master/docx/images/2018-01-01_212622.png)
+
+- Hotel
+
+![IMAGE](https://github.com/taoyouxian/TravelAgencySys/blob/master/docx/images/2018-01-01_212703.png)
+
+- Car
+
+![IMAGE](https://github.com/taoyouxian/TravelAgencySys/blob/master/docx/images/2018-01-01_212732.png)
+
 ## Tutorial
 
 First in first, download the Eclipse Java EE, JDK and install it. There are many instruction about this, so ignore it here.
